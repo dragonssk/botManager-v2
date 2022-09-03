@@ -91,6 +91,7 @@ local orbitData = {
     orbitDistanceY = 1;
     orbitDelay = 0.5;
     orbitPlayer = hostPlayer;
+    orbitOffset = Vector3.new(0, 0, 0);
 }
 
 newThread(function()
@@ -101,7 +102,7 @@ newThread(function()
                     local randomX = random:NextInteger(-orbitData.orbitDistanceXZ*100, orbitData.orbitDistanceXZ*100)/100;
                     local randomY = random:NextInteger(-orbitData.orbitDistanceY*100, orbitData.orbitDistanceY*100)/100;
                     local randomZ = random:NextInteger(-orbitData.orbitDistanceXZ*100, orbitData.orbitDistanceXZ*100)/100;
-                    localCharacter.HumanoidRootPart.Position  = hostCharacter.HumanoidRootPart.Position + Vector3.new(randomX, randomY, randomZ);
+                    localCharacter.HumanoidRootPart.Position = hostCharacter.HumanoidRootPart.Position + Vector3.new(randomX, randomY, randomZ) + orbitData.orbitOffset;
                 end);
             end);
         end;
@@ -141,4 +142,29 @@ hostCommand({'op', 'orbitplayer'}, function(_, messageSplit)
             end;
         end;
     end;
+end);
+hostCommand({'oo', 'orbitoffset'}, function(message, messageSplit)
+    table.remove(messageSplit, 1);
+    local newVector3 = Vector3.new(tonumber(messageSplit[1]), tonumber(messageSplit[2]), tonumber(messageSplit[3]));
+    orbitData.orbitOffset = newVector3;
+end);
+local sitEnabled = false;
+newThread(function()
+    while true do task.wait();
+        charFunction(localPlayer, function(localCharacter)
+            localCharacter.Humanoid.Sit = sitEnabled;
+        end);
+    end;
+end);
+hostCommand({'sit'}, function()
+    sitEnabled = true;
+end);
+hostCommand({'unsit'}, function()
+    sitEnabled = false;
+end);
+hostCommand({'ng', 'nograv', 'nogravity'}, function()
+    workspace.Gravity = 0;
+end);
+hostCommand({'g', 'grav', 'gravity'}, function()
+    workspace.Gravity = 196.2;
 end);
