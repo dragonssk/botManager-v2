@@ -1,6 +1,8 @@
 # botManager v2
 I made this project for fun, it allows you to use a handful of commands on a bunch of alts!
 
+You have probably seen me using this in [a literal baseplate](https://www.roblox.com/games/4483381587/a-literal-baseplate)
+
 **This is not a final product**, it is currently a **WORK IN PROGRESS**
 
 # How to Use
