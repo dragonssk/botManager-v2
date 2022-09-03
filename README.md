@@ -1,6 +1,8 @@
 # botManager v2
 I made this project for fun, it allows you to use a handful of commands on a bunch of alts!
 
+**This is not a final product**, it is currently a **WORK IN PROGRESS**
+
 # How to Use
 - Install [Roblox Account Manager](https://github.com/ic3w0lf22/Roblox-Account-Manager) (This has Multi Roblox installed by default, so don't worry about that)
 - Create/Add an account you want to control the bots on
