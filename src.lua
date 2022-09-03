@@ -1,6 +1,3 @@
--- https://github.com/dragonssk/botManager-v2
--- If you distribute this source code on external websites, please provide credit to the original Github repository.
-
 repeat task.wait(); until game:IsLoaded();
 
 local userInputService  = game:GetService('UserInputService');
@@ -41,7 +38,9 @@ runService:Set3dRenderingEnabled(config.bots.botRendering);
 
 local function charFunction(player, callback)
     if (player.Character) then
-        callback(player.Character);
+        if (player.Character:FindFirstChild('HumanoidRootPart')) then
+            callback(player.Character);
+        end;
     end;
 end;
 
