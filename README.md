@@ -6,7 +6,7 @@ I made this project for fun, it allows you to use a handful of commands on a bun
 - Create/Add an account you want to control the bots on
 - Create/Add any amount of accounts with a certain prefix e.g "prefix12_name" "himynameis_name"
 - Go into src.lua, and change the config info to match your accounts' info
-- Join a game on the account you want to control the bots on **first**
+- Join a game on the account you want to control the bots on **first** on the account manager
 - Copy the Job ID `setclipboard(game.JobId)`
 - Paste it into the Job ID field beside the Place ID field
 - Join on all of your alts
