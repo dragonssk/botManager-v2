@@ -3,7 +3,7 @@ I made this project for fun, it allows you to use a handful of commands on a bun
 
 You have probably seen me using this in [a literal baseplate](https://www.roblox.com/games/4483381587/a-literal-baseplate), and I directed you here
 
-**This is not a final product**, it is currently a **WORK IN PROGRESS**
+Please note that **this is not a final product**, it is currently a **WORK IN PROGRESS**
 
 # How to Use
 - Install [Roblox Account Manager](https://github.com/ic3w0lf22/Roblox-Account-Manager) (This has Multi Roblox installed by default, so don't worry about that)
