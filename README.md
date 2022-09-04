@@ -17,3 +17,4 @@ You have probably seen me using this in [a literal baseplate](https://www.roblox
 - If you have done this correctly, you will now be able to use the commands on your alts! A list of commands can be found below.
 
 # Commands
+go look in the script
