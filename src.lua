@@ -15,7 +15,7 @@ local playerMouse       = localPlayer:GetMouse();
 local random            = Random.new();
 
 local config = {
-    hostAccount = 'decom_piler';
+    hostAccount = 'xMgnALOLps6GAOWcI2LX';
     bots = {
         botPrefix = 'dragonssk_';
         botFpsCap = 15;
@@ -23,6 +23,12 @@ local config = {
     };
     commandPrefix = '>';
 };
+
+localPlayer.Idled:Connect(function()
+   game:GetService('VirtualUser'):Button2Down(Vector2.new(0,0),currentCamera.CFrame);
+   task.wait(math.random(100, 200)/100);
+   game:GetService('VirtualUser'):Button2Up(Vector2.new(0,0),currentCamera.CFrame);
+end);
 
 if (localPlayer.Name == config.hostAccount) then
     error('Host Account Detected, Script Disabled, Not A Bug');
@@ -32,6 +38,15 @@ local hostPlayer = playerService:FindFirstChild(config.hostAccount);
 if (not hostPlayer) then
     game:Shutdown();
 end;
+
+playerService.PlayerRemoving:Connect(function(player)
+    if (player.Name == config.hostAccount) then
+        game:Shutdown();
+    end;
+end);
+
+UserSettings():GetService('UserGameSettings').MasterVolume = 0;
+UserSettings():GetService('UserGameSettings').GraphicsQualityLevel = 1;
 
 setfpscap(config.bots.botFpsCap);
 runService:Set3dRenderingEnabled(config.bots.botRendering);
@@ -88,13 +103,13 @@ local orbitData = {
     orbitEnabled = false;
     orbitDistanceXZ = 5;
     orbitDistanceY = 1;
-    orbitDelay = 0.5;
+    orbitDelay = 0;
     orbitPlayer = hostPlayer;
     orbitOffset = Vector3.new(0, 0, 0);
 }
 
 newThread(function()
-    while true do task.wait(orbitDelay)
+    while true do task.wait(orbitData.orbitDelay)
         if (orbitData.orbitEnabled) then
             charFunction(localPlayer, function(localCharacter)
                 charFunction(orbitData.orbitPlayer, function(hostCharacter)
@@ -166,4 +181,9 @@ hostCommand({'ng', 'nograv', 'nogravity'}, function()
 end);
 hostCommand({'g', 'grav', 'gravity'}, function()
     workspace.Gravity = 196.2;
+end);
+hostCommand({'r', 'reset'}, function()
+    charFunction(localPlayer, function(localCharacter)
+        localCharacter:BreakJoints();
+    end);
 end);
